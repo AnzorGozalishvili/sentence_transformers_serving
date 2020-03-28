@@ -4,6 +4,7 @@ import os
 
 from flask import Flask, jsonify, request
 from sentence_transformers import SentenceTransformer
+from waitress import serve
 
 app = Flask(__name__)
 
@@ -24,4 +25,4 @@ if __name__ == '__main__':
     model_name_or_path = os.environ.get('model_name_or_path', "bert-base-nli-stsb-mean-tokens")
     encoder = SentenceTransformer(model_name_or_path=model_name_or_path)
 
-    app.run(host='0.0.0.0', port=5000)
+    serve(app, host="0.0.0.0", port=5000)
