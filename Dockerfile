@@ -58,9 +58,6 @@ RUN sudo apt-get update
 WORKDIR /app/
 ADD requirements.txt /app/
 
-# Explicitly install jsonnet (for allennlp)
-RUN conda install -c conda-forge jsonnet
-
 # Install requirements
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
