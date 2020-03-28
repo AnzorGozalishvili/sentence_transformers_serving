@@ -9,7 +9,10 @@ and [source](https://github.com/UKPLab/sentence-transformers#application-example
 
 **Trained on STS data**
 
-These models were first fine-tuned on the AllNLI datasent, then on train set of STS benchmark. They are specifically well suited for semantic textual similarity. For more details, see: [sts-models.md](https://github.com/UKPLab/sentence-transformers/blob/master/docs/pretrained-models/sts-models.md).
+These models were first fine-tuned on the AllNLI datasent, then on train set of STS benchmark. 
+They are specifically well suited for semantic textual similarity. For more details, see: 
+[sts-models.md](https://github.com/UKPLab/sentence-transformers/blob/master/docs/pretrained-models/sts-models.md).
+
 - **bert-base-nli-stsb-mean-tokens**: Performance: STSbenchmark: 85.14
 - **bert-large-nli-stsb-mean-tokens**: Performance: STSbenchmark: 85.29
 - **roberta-base-nli-stsb-mean-tokens**: Performance: STSbenchmark: 85.40
@@ -38,7 +41,8 @@ Extensive evaluation is currently undergoing, but here we provide some prelimina
 ## docker-compose parameters
 Flask api running on port 5000 will be mapped to outer 5002 port.
 (it uses docker-compose version 2.3 which supports `runtime: nvidia` to easily use GPU environment inside container)
-assign name of model that you want to serve to `MODEL` environment variable (default is bert-base-nli-stsb-mean-tokens)
+
+Assign name of model that you want to serve to `MODEL` environment variable (default is bert-base-nli-stsb-mean-tokens)
 ```yaml
 version: '2.3'
 services:
@@ -148,5 +152,7 @@ corpus_embeddings = model.encode(corpus)
 ```
 
 # References
+
 https://github.com/UKPLab/sentence-transformers
+
 https://arxiv.org/abs/1908.10084

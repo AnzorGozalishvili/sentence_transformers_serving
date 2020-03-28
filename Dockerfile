@@ -67,8 +67,8 @@ RUN pip install -r requirements.txt
 
 
 # Move required resources                     
-ADD api.py           /app/
+ADD app.py   /app/
 
 # Run flask api
 ENTRYPOINT ["python3"]
-CMD ["api.py"]
+CMD ["app.py"]
