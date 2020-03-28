@@ -1,0 +1,11 @@
+version: '2.3'
+services:
+  sentence_transformers_serving:
+    container_name: sentence_transformers_serving
+    build: .
+    ports:
+      - "5002:5000"
+    runtime: nvidia
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - MODEL=bert-base-nli-stsb-mean-tokens
