@@ -44,7 +44,7 @@ ENV PATH=$CONDA_PREFIX/bin:$PATH
 RUN /home/user/miniconda/bin/conda install conda-build=3.18.9=py36_3 \
  && /home/user/miniconda/bin/conda clean -ya
 
-# CUDA 10.1-specific steps
+# CUDA 10.1-specific steps (comment this section to run on device that doesn't have GPU)
 RUN conda install -y -c pytorch \
     cudatoolkit=10.1 \
     "pytorch=1.4.0=py3.6_cuda10.1.243_cudnn7.6.3_0" \
@@ -62,6 +62,8 @@ ADD requirements.txt /app/
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+# Download Sentence Transformers Model
+RUN python -c "import os; from sentence_transformers import SentenceTransformer; SentenceTransformer(os.environ.get('model_name_or_path', 'bert-base-nli-stsb-mean-tokens'));"
 
 # Move required resources                     
 ADD app.py   /app/

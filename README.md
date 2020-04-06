@@ -43,6 +43,7 @@ Flask api running on port 5000 will be mapped to outer 5002 port.
 (it uses docker-compose version 2.3 which supports `runtime: nvidia` to easily use GPU environment inside container)
 
 Assign name of model that you want to serve to `MODEL` environment variable (default is bert-base-nli-stsb-mean-tokens)
+You must remove runtime: nvidia to run docker on cpu. (If it still fails then open Dockerfile and comment section of cuda libraries installation)
 ```yaml
 version: '2.3'
 services:
