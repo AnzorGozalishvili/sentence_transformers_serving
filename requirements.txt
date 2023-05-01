@@ -1,5 +1,5 @@
 sentence-transformers==0.2.5.1
-Flask==1.1.1
+Flask==2.3.2
 requests==2.23.0
 waitress==1.4.3
 
